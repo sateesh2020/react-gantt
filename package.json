@@ -7,9 +7,19 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
   },
+  "main": "lib/index.js",
   "author": {
     "name": "Satheesh Valluru",
     "email": "vallurusateesh2009@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sateesh2020/react-gantt/issues",
+    "email": "vallurusateesh2009@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sateesh2020/react-gantt.git"
   },
   "devDependencies": {
     "react-scripts": "1.1.4"
