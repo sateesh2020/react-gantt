@@ -63,3 +63,10 @@ A React and D3 Plugin to render Gantt Chart.
 * D3
 * React 
 * React DOM
+
+### Install
+
+```
+  npm install react-d3gantt
+  
+```

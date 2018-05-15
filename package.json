@@ -1,5 +1,5 @@
 {
-  "name": "react-gantt",
+  "name": "react-d3gantt",
   "version": "1.0.0",
   "private": false,
   "dependencies": {
