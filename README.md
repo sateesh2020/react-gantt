@@ -50,3 +50,16 @@ A React and D3 Plugin to render Gantt Chart.
 * description
 * color
 * percentageCompleted
+
+
+### Features
+
+* Multicolor supportby providing through color key.
+* Milestone representation based on the versioning.
+* Bar fill based on the percentage completed.
+
+### Dependencies
+
+* D3
+* React 
+* React DOM
