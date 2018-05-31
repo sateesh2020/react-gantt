@@ -2,6 +2,20 @@
 
 A React and D3 Plugin to render Gantt Chart.
 
+## How to use
+
+```js
+
+import { GanttChart } from "react-d3gantt";
+
+const chartDate = [
+  .....
+]
+
+  <GanttChart chartData={chartDate} />
+
+```
+
 ## Sample Data 
 
 ```sh

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
+import { isEqual } from "lodash"; 
 
 import { XAxis, YAxis } from "./components/Axis";
 
@@ -59,7 +60,13 @@ class Gantt extends Component {
   componentDidMount() {
     this.initScales();
   }
-  componentDidUpdate() {}
+  componentWillReceiveProps(nextProps) {
+    let { chartData } = this.props;
+    let newChartDate = nextProps.chartData;
+    if(!isEqual(chartData, newChartDate)){
+      this.initScales();
+    }
+  }
   initScales() {
     let XScale = this.getXScale();
     let YScale = this.getYScale();
@@ -88,29 +95,32 @@ class Gantt extends Component {
   }
   buildDomTree() {
     let { chartData } = this.props;
-    let { XScale, YScale } = this.state;
-    if (!XScale || !YScale) {
-      XScale = this.getXScale();
-      YScale = this.getYScale();
+    let domTree = [];
+    if(chartData.length){
+      let { XScale, YScale } = this.state;
+      if (!XScale || !YScale) {
+        XScale = this.getXScale();
+        YScale = this.getYScale();
+      }
+      domTree = chartData.map(task => {
+        let elementWidth = XScale(task.endDate) - XScale(task.startDate);
+        let translate =
+          "translate(" +
+          XScale(task.startDate) +
+          "," +
+          (YScale(task.taskName) + 20) +
+          ")";
+        let fillWidth = elementWidth * (task.percentageCompleted / 100);
+        let unFilledWidth = elementWidth - fillWidth;
+        let textX = elementWidth / 2 - 10;
+        task.elementWidth = elementWidth;
+        task.translate = translate;
+        task.fillWidth = fillWidth;
+        task.unFilledWidth = unFilledWidth;
+        task.textX = textX;
+        return task;
+      });
     }
-    let domTree = chartData.map(task => {
-      let elementWidth = XScale(task.endDate) - XScale(task.startDate);
-      let translate =
-        "translate(" +
-        XScale(task.startDate) +
-        "," +
-        (YScale(task.taskName) + 20) +
-        ")";
-      let fillWidth = elementWidth * (task.percentageCompleted / 100);
-      let unFilledWidth = elementWidth - fillWidth;
-      let textX = elementWidth / 2 - 10;
-      task.elementWidth = elementWidth;
-      task.translate = translate;
-      task.fillWidth = fillWidth;
-      task.unFilledWidth = unFilledWidth;
-      task.textX = textX;
-      return task;
-    });
     return domTree;
   }
   render() {

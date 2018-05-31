@@ -1,11 +1,12 @@
 {
   "name": "react-d3gantt",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": false,
   "dependencies": {
     "d3": "^5.1.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "lodash":"^4.17.4"
   },
   "main": "lib/index.js",
   "author": {
