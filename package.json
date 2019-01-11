@@ -4,8 +4,8 @@
   "private": false,
   "dependencies": {
     "d3": "^5.1.0",
-    "react": "16.0.1",
-    "react-dom": "16.0.1",
+    "react": "^16.0.1",
+    "react-dom": "^16.0.1",
     "lodash":"^4.17.4"
   },
   "main": "src/index.js",
