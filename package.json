@@ -1,6 +1,6 @@
 {
   "name": "react-d3gantt",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "dependencies": {
     "d3": "^5.1.0",
